@@ -1,0 +1,93 @@
+{% extends "/main.html" %}
+
+
+<head>
+
+</head>
+
+
+    {% block title %}
+
+    {% endblock %}
+
+{% block body %}
+<body background="static\content_120210220929100445.jpg" style = "background-size: 100% 100%; background-repeat: no-repeat; background-attachment: fixed;">
+<div class="container">
+    <div class="col-md-14">
+
+
+<form action="#" method="POST">
+
+    <p>名字:</p>
+        <p><input type="text" name = "add_name" id = "add_name"></p>
+    <p>Title:</p>
+        <p><input type="text" name = "title"></p>
+    <p>Content:</p>
+        <p><input type="text" name = "content"></p>
+
+        <p><input type="submit" value="我現在就要加留言"></p>
+
+
+</form>
+
+        <!--=============================================-->
+           <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+  更多功能
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">功能表</h5>
+      </div>
+      <div class="modal-body">
+        選你要的功能
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">直接離開</button>
+        <button type="button" class="btn btn-primary" onclick="javascript:location.href='update_db'">批量修改留言</button>
+        <button type="button" class="btn btn-primary" onclick="javascript:location.href='drop'">刪除所有資料</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <!--=============================================-->
+
+
+
+</div>
+
+<div class="jumbotron jumbotron-fluid mt-5">
+<div class="container">
+<h4 class="display-4">查看所有留言</h4>
+<ul class="list-group">
+{% for item in Message%}
+    <li class="list-group-item">
+        <h4 class="mb-1">姓名： {{item.user.name}}</H4>
+        <h4 class="mb-1">抬頭： {{item.title}}</H4>
+        <h4 class="mb-1">content： {{item.content}}</H4>
+    </li>
+  {% endfor %}
+</ul>
+</div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+</body>
+
+
+{% block js %}
+
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% endblock %}
+
+</html>
